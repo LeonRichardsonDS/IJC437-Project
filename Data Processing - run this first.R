@@ -5,7 +5,7 @@ library(readxl)
 
 ## Process Employment Data
 # Yorkshire employment dataset (pre-processed)
-Yorkshire_Employment_R <- read_excel("MSc/Intro to Data Science/Yorkshire Employment For R.xlsx")
+Yorkshire_Employment_R <- read_excel("Employment Data.xlsx")
 
 # Create long form of Employment Data
 emp_long <- Yorkshire_Employment_R %>%
@@ -24,7 +24,7 @@ emp <- emp_long %>%
   filter(Industry == 'Area Total')
 
 ### Process Business Demography Data
-BD_Data_For_R <- read_excel("MSc/Intro to Data Science/BD Data For R.xlsx")
+BD_Data_For_R <- read_excel("Business Demography Data.xlsx")
 
 # Create long form of business demography data
 bd_long <- BD_Data_For_R %>%
@@ -177,4 +177,5 @@ ind_09 <- emp_long %>%
                            "Arts, entertainment, recreation & other services" = "Arts & recreation")) %>%
   pivot_wider(names_from = Industry, values_from = Employees) %>%
   as.data.frame() # so rownames can be changed
+
 
