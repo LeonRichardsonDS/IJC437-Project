@@ -1,7 +1,7 @@
 # IJC437-Project
 **The first piece of coursework I completed on my MSc Data Science.**
 
-The project investigated differences in economic performance within Yorkshire and the Humber, using data on the number of enteprises (businesses) and employees from 2009-2022. 
+The project investigated differences in economic performance across 21 areas in Yorkshire and the Humber, using data on the number of enteprises (businesses) and employees from 2009-2022. 
 
 The performance of 21 areas was compared and modelled.
 
