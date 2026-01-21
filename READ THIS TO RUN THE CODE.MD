@@ -6,7 +6,7 @@
  - The four R files available in the repository. 
 
 ### First R file: Data processing
- - Before you run this file, fill in the directories in the code so the dataset can be imported off your computer.
+ - Before you run this file, fill in the directories in the code so the dataset S can be imported off your computer.
 
 ### Then run in this order:
  - Data processing
