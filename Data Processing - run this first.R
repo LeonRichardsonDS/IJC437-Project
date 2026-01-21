@@ -5,7 +5,7 @@ library(readxl)
 
 ## Process Employment Data
 # Yorkshire employment dataset (pre-processed)
-Yorkshire_Employment_R <- read_excel("Employment Data.xlsx") # Add your file directory
+Yorkshire_Employment_R <- read_excel("MSc/Intro to Data Science/Yorkshire Employment For R.xlsx")
 
 # Create long form of Employment Data
 emp_long <- Yorkshire_Employment_R %>%
@@ -24,7 +24,7 @@ emp <- emp_long %>%
   filter(Industry == 'Area Total')
 
 ### Process Business Demography Data
-BD_Data_For_R <- read_excel("Business Demography Data.xlsx") # Add your file directory
+BD_Data_For_R <- read_excel("MSc/Intro to Data Science/BD Data For R.xlsx")
 
 # Create long form of business demography data
 bd_long <- BD_Data_For_R %>%
@@ -58,6 +58,10 @@ bd <- bd %>%
 emp <- emp %>%
   arrange(Year, Area)
 
+
+"
+Database 1 is called areas 
+"
 # Join datasets
 areas <- cbind(emp, bd) 
 
@@ -140,4 +144,37 @@ emp_long <- emp_long %>%
   left_join(baseline_industry_values, by = c("Industry", "Area")) %>% # join with baseline df, duplicating baselines values for every year
   mutate(pct_change = (Employees - baseline_value) / baseline_value * 100) # create % change column using baseline
 
+
+
+"
+Database two is called ind_09 (industries in 09)
+"
+
+# Create wider df for PCA in RQ2
+ind_09 <- emp_long %>%
+  filter(Year == 2009, Industry != 'Area Total', ! Area %in% c('Yorks and Humber', 
+                                                               'North Yorks County', 'South Yorks Met', 'West Yorks Met')) %>%
+  
+  select(Industry, Area, Employees) %>%
+  # shorten industry names for heatmap
+  mutate(Industry = recode(Industry,  "Agriculture, forestry & fishing" = "Agriculture", 
+                           "Mining, quarrying & utilities" = "Mining & utilities",
+                           "Manufacturing" = "Manufacturing",
+                           "Construction" = "Construction",
+                           "Motor trades" = "Motor trades",
+                           "Wholesale" = "Wholesale",
+                           "Retail" = "Retail",
+                           "Transport & storage" = "Transport",
+                           "Accommodation & food services" = "Accomm & food",
+                           "Information & communication" = "Info & comms",
+                           "Financial & insurance" = "Finance",
+                           "Property" = "Property",
+                           "Professional, scientific & technical" = "Prof services",
+                           "Business administration & support services" = "Business support",
+                           "Public administration & defence" = "Public admin",
+                           "Education" = "Education",
+                           "Health" = "Health",
+                           "Arts, entertainment, recreation & other services" = "Arts & recreation")) %>%
+  pivot_wider(names_from = Industry, values_from = Employees) %>%
+  as.data.frame() # so rownames can be changed
 
