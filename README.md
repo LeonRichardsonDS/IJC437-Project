@@ -3,7 +3,7 @@
 
 The project investigated differences in economic performance within Yorkshire and the Humber, using data on the number of enteprises (businesses) and employees from 2009-2022. 
 
-The performance of 21 areas that covered Yorkshire and the Humber was compared and modelled.
+The performance of 21 areas was compared and modelled.
 
 ### Key findings
  - Wide variation in the change in enterprise and employment numbers across the region. 
