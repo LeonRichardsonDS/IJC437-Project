@@ -1,5 +1,5 @@
 # IJC437-Project
-** The first piece of coursework I completed on my MSc Data Science. **
+**The first piece of coursework I completed on my MSc Data Science.**
 
 The project investigated differences in economic performance within Yorkshire and the Humber, using data on the number of enteprises (businesses) and employees from 2009-2022. 
 
